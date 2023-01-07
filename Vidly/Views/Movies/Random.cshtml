@@ -1,0 +1,30 @@
+﻿@model Vidly.ViewModels.RandomMoveViewModel
+@{
+    ViewData["Title"] = "Random";
+}
+
+<h1>Random</h1>
+
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    
+    <tbody>
+@foreach (var item in Model.Customers) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            
+            <td>
+                @Html.ActionLink("Edit", "Edit", new {name=item.Name }) |
+                @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+
